@@ -1,0 +1,49 @@
+@media only screen and (max-width: 332px) {
+  /* line 10, ../sass/media.scss */
+  .course-circle {
+    width: 18%;
+    padding-top: 18%;
+  }
+}
+@media only screen and (min-width: 333px) {
+  /* line 17, ../sass/media.scss */
+  .course-circle {
+    width: 20%;
+    padding-top: 20%;
+  }
+}
+@media only screen and (min-width: 481px) {
+  /* line 24, ../sass/media.scss */
+  .course-circle {
+    width: 20%;
+    padding-top: 20%;
+  }
+}
+@media only screen and (min-width: 769px) {
+  /* line 31, ../sass/media.scss */
+  .course-circle {
+    width: 20%;
+    padding-top: 20%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  /* line 39, ../sass/media.scss */
+  .course-circle {
+    width: 14.285%;
+    padding-top: 14.285%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* line 46, ../sass/media.scss */
+  .course-circle {
+    width: 14.285%;
+    padding-top: 14.285%;
+  }
+}
+@media only screen and (min-width: 1601px) {
+  /* line 52, ../sass/media.scss */
+  .course-circle {
+    width: 12.5%;
+    padding-top: 12.5%;
+  }
+}
