@@ -221,6 +221,7 @@ div.course-circle div .inner {
 /* line 49, ../sass/main.scss */
 div.course-circle div .inner.secondary {
   background: white;
+  color: #ddd;
   transition: box-shadow 0.3s, background 1s, color 1s;
 }
 /* line 54, ../sass/main.scss */
