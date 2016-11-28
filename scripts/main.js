@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
   var data = {}, graphArr = [];
-
+  var sidebarList = $('ul.list');
   /* Load data from */
   
   // $('.coursetabid').find('tr').each(function(index, el) {
@@ -378,7 +378,7 @@ jQuery(document).ready(function($) {
     var el = data[key];
     var arr = el.pre_req.replace(/\s+/g, '').split(',');
     arr[0] == '' ? data[key].pre_req = [] : data[key].pre_req = arr;
-
+    el.visibleInList = 1;
   }
 
   window.dd = data;
@@ -386,7 +386,18 @@ jQuery(document).ready(function($) {
   Object.keys(data).forEach(function(val, index) {
     graphArr[index] = data[val];
   });
+  
 
+  for(var key in data){
+    var el = data[key];
+    if(el.visibleInList) {
+      var str = '<li class="item"> ' + 
+                '<div class="code">'+ el.code +'</div>' +
+                '<div class="name">' + el.course_name + '</div>' +
+                '</li>';
+      sidebarList.append(str);
+    }
+  }
   // console.log(Object.keys(data).length)
 
   var svg = d3.select("#graph");
@@ -395,8 +406,8 @@ jQuery(document).ready(function($) {
 
   var circleEnter = circle.enter().append("div").attr('class', 'course-circle');
 
-  circleEnter.append("div")
-    .append("div").attr('class', function (course) {
+  circleEnter.append("div").append("div")
+    .attr('class', function (course) {
       return 'inner ' + course.code + ' gray'
     })
       .append("span").text(function(course, index) { return course.code; });

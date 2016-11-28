@@ -43,7 +43,7 @@
 @media only screen and (min-width: 1601px) {
   /* line 52, ../sass/media.scss */
   .course-circle {
-    width: 12.5%;
-    padding-top: 12.5%;
+    width: 14.285%;
+    padding-top: 14.285%;
   }
 }
