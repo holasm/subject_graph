@@ -1,6 +1,6 @@
 <template lang=pug>
 .subject-container
-  h3 {{ subject.name }}
+  h3 {{ subject.code }}
 </template>
 
 <script>

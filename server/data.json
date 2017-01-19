@@ -1,0 +1,674 @@
+[
+  {
+    name: 'Algorithmic Algebra',
+    code: 'CS6842',
+    id: '3',
+    pre_req: []
+  },
+  {
+    name: 'Searching and Indexing in Big Data Sets',
+    code: 'CS6740',
+    id: '4',
+    pre_req: []
+  },
+  {
+    name: 'Wireless Communication and Networks',
+    code: 'CS6120',
+    id: '5',
+    pre_req: []
+  },
+  {
+    name: 'Computer System Design',
+    code: 'CS4100',
+    id: '6',
+    pre_req: []
+  },
+  {
+    name: 'Logic and Combinatorics for Computer Science',
+    code: 'CS6030',
+    id: '7',
+    pre_req: []
+  },
+  {
+    name: 'Machine Learning',
+    code: 'CS5011',
+    id: '8',
+    pre_req: []
+  },
+  {
+    name: 'Concurrent Programming',
+    code: 'CS6868',
+    id: '9',
+    pre_req: []
+  },
+  {
+    name: 'Reinforcement learning',
+    code: 'CS6700',
+    id: '10',
+    pre_req: []
+  },
+  {
+    name: 'Social Network Analysis',
+    code: 'CS6012',
+    id: '11',
+    pre_req: []
+  },
+  {
+    name: 'Modern Compilers - Theory and Practice',
+    code: 'CS6013',
+    id: '12',
+    pre_req: []
+  },
+  {
+    name: 'CAD for VLSI',
+    code: 'CS6230',
+    id: '13',
+    pre_req: []
+  },
+  {
+    name: 'Assembly Language Programming Lab',
+    code: 'CS2610',
+    id: '14',
+    pre_req: []
+  },
+  {
+    name: 'Compiler Design',
+    code: 'CS3300(O)',
+    id: '15',
+    pre_req: ['25', '92', '95']
+  },
+  {
+    name: 'Software Engineering Lab',
+    code: 'CS3410',
+    id: '17',
+    pre_req: []
+  },
+  {
+    name: 'Compiler Design Lab',
+    code: 'CS3310(O)',
+    id: '18',
+    pre_req: []
+  },
+  {
+    name: 'Paradigms of Programming',
+    code: 'CS3100',
+    id: '19',
+    pre_req: ['25', '94', '89', '94', '88']
+  },
+  {
+    name: 'Principles of Programming Languages',
+    code: 'CS6848',
+    id: '20',
+    pre_req: []
+  },
+  {
+    name: 'Natural Language Processing',
+    code: 'CS6370',
+    id: '22',
+    pre_req: []
+  },
+  {
+    name: 'Modern Complexity Theory',
+    code: 'CS6840',
+    id: '23',
+    pre_req: ['1']
+  },
+  {
+    name: 'Algorithmic Foundations of Data Science',
+    code: 'CS6741',
+    id: '24',
+    pre_req: []
+  },
+  {
+    name: 'Languages, Machines and Computation',
+    code: 'CS2200',
+    id: '25',
+    pre_req: []
+  },
+  {
+    name: 'Optimization Methods for Computer Vision Applications',
+    code: 'CS6777',
+    id: '26',
+    pre_req: []
+  },
+  {
+    name: 'Pattern Recognition',
+    code: 'CS6690',
+    id: '27',
+    pre_req: []
+  },
+  {
+    name: 'Computational Engineering',
+    code: 'CS1100',
+    id: '28',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Algorithms',
+    code: 'CS6846',
+    id: '29',
+    pre_req: []
+  },
+  {
+    name: 'Data Structures & Algorithms',
+    code: 'CS2800',
+    id: '30',
+    pre_req: []
+  },
+  {
+    name: 'Program Analysis',
+    code: 'CS6843',
+    id: '31',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Wireless Networks',
+    code: 'CS6747',
+    id: '32',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Data Structures and Algorithms',
+    code: 'CS5800',
+    id: '33',
+    pre_req: []
+  },
+  {
+    name: 'Distributed Algorithms',
+    code: 'CS6851',
+    id: '34',
+    pre_req: []
+  },
+  {
+    name: 'Topics in Complexity Theory',
+    code: 'CS6850',
+    id: '35',
+    pre_req: []
+  },
+  {
+    name: 'Planning and Constraint Satisfaction',
+    code: 'CS6680',
+    id: '36',
+    pre_req: []
+  },
+  {
+    name: 'Computer Organization',
+    code: 'CS2600',
+    id: '37',
+    pre_req: []
+  },
+  {
+    name: 'Memory Based Reasoning in AI',
+    code: 'CS6250',
+    id: '38',
+    pre_req: []
+  },
+  {
+    name: 'Recent Topics in Compilers',
+    code: 'CS7030',
+    id: '39',
+    pre_req: []
+  },
+  {
+    name: 'Computer Vision',
+    code: 'CS6350',
+    id: '40',
+    pre_req: []
+  },
+  {
+    name: 'Principles of Communication',
+    code: 'CS2400',
+    id: '41',
+    pre_req: []
+  },
+  {
+    name: 'Kernel Methods for Pattern Recognition',
+    code: 'CS6011',
+    id: '42',
+    pre_req: []
+  },
+  {
+    name: 'Theory and Applications of Ontologies',
+    code: 'CS6852',
+    id: '43',
+    pre_req: []
+  },
+  {
+    name: 'Principles of Software Engineering',
+    code: 'CS3400',
+    id: '44',
+    pre_req: []
+  },
+  {
+    name: 'Computer Graphics',
+    code: 'CS6360',
+    id: '45',
+    pre_req: []
+  },
+  {
+    name: 'Digital Design Verification',
+    code: 'CS6760',
+    id: '46',
+    pre_req: []
+  },
+  {
+    name: 'Knowledge Representation and Reasoning',
+    code: 'CS6770',
+    id: '47',
+    pre_req: []
+  },
+  {
+    name: 'Geometry and Photometry based Image Formation',
+    code: 'CS6790',
+    id: '48',
+    pre_req: []
+  },
+  {
+    name: 'Recent Developments in Theoretical Computer Science',
+    code: 'CS6190',
+    id: '49',
+    pre_req: []
+  },
+  {
+    name: 'Computer Networks',
+    code: 'CS3200',
+    id: '50',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Programming Lab',
+    code: 'CS2810',
+    id: '51',
+    pre_req: []
+  },
+  {
+    name: 'Computer Networks Lab',
+    code: 'CS3210',
+    id: '52',
+    pre_req: []
+  },
+  {
+    name: 'Software Engineering Lab',
+    code: 'CS3410',
+    id: '53',
+    pre_req: []
+  },
+  {
+    name: 'Data Mining',
+    code: 'CS6720',
+    id: '54',
+    pre_req: []
+  },
+  {
+    name: 'Topics in Reinforcement Learning',
+    code: 'CS7011',
+    id: '55',
+    pre_req: ['10']
+  },
+  {
+    name: 'Quantum Algorithms and Quantum Complexity',
+    code: 'CS6846',
+    id: '56',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Wireless Communications and Networks',
+    code: 'CS6844',
+    id: '57',
+    pre_req: []
+  },
+  {
+    name: 'Foundations of Cryptography',
+    code: 'CS6111',
+    id: '58',
+    pre_req: []
+  },
+  {
+    name: 'Artificial Intelligence',
+    code: 'CS6380',
+    id: '59',
+    pre_req: []
+  },
+  {
+    name: 'Topics in Design and Analysis of Algorithms',
+    code: 'CS6100',
+    id: '60',
+    pre_req: []
+  },
+  {
+    name: 'Operating Systems',
+    code: 'CS3500',
+    id: '61',
+    pre_req: ['92', '93', '94', '95']
+  },
+  {
+    name: 'Cloud Computing',
+    code: 'CS6847',
+    id: '62',
+    pre_req: []
+  },
+  {
+    name: 'Computer Architecture',
+    code: 'CS6600',
+    id: '63',
+    pre_req: []
+  },
+  {
+    name: 'Discrete Mathematics for Computer Science',
+    code: 'CS2100',
+    id: '64',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Algorithms',
+    code: 'CS6841',
+    id: '65',
+    pre_req: []
+  },
+  {
+    name: 'Introduction to CS&E',
+    code: 'CS1300',
+    id: '66',
+    pre_req: []
+  },
+  {
+    name: 'Digital System Testing and Testable Design',
+    code: 'CS6330',
+    id: '67',
+    pre_req: []
+  },
+  {
+    name: 'Digital Video Processing',
+    code: 'CS6870',
+    id: '68',
+    pre_req: []
+  },
+  {
+    name: 'Foundations of Data Science',
+    code: 'CS6741',
+    id: '69',
+    pre_req: []
+  },
+  {
+    name: 'Digital Logic and Design Lab',
+    code: 'CS2310(O)',
+    id: '70',
+    pre_req: []
+  },
+  {
+    name: 'Advanced Programming Lab',
+    code: 'CS6140',
+    id: '71',
+    pre_req: []
+  },
+  {
+    name: 'Operating Systems Lab',
+    code: 'CS3510',
+    id: '73',
+    pre_req: []
+  },
+  {
+    name: 'Computer Programming Lab',
+    code: 'CS2110',
+    id: '74',
+    pre_req: []
+  },
+  {
+    name: 'MTech Project - I',
+    code: 'CS5980',
+    id: '75',
+    pre_req: []
+  },
+  {
+    name: 'B.Tech(DD) Project - I',
+    code: 'CS5700',
+    id: '76',
+    pre_req: []
+  },
+  {
+    name: 'Probability and Computing',
+    code: 'CS5820',
+    id: '77',
+    pre_req: []
+  },
+  {
+    name: 'Linear Algebra and Random Processes',
+    code: 'CS6015',
+    id: '78',
+    pre_req: []
+  },
+  {
+    name: 'M.Tech Project - II',
+    code: 'CS5990',
+    id: '79',
+    pre_req: []
+  },
+  {
+    name: 'M.Tech Project - III',
+    code: 'CS6000',
+    id: '80',
+    pre_req: ['79']
+  },
+  {
+    name: 'B.Tech (DD) Seminar',
+    code: 'CS5806',
+    id: '81',
+    pre_req: []
+  },
+  {
+    name: 'Switching Theory and Digital Design',
+    code: 'CS2300(O)',
+    id: '82',
+    pre_req: []
+  },
+  {
+    name: 'Software Defined Networking',
+    code: 'CS6045',
+    id: '83',
+    pre_req: []
+  },
+  {
+    name: 'Speech Technology',
+    code: 'CS6300',
+    id: '84',
+    pre_req: []
+  },
+  {
+    name: 'Artificial Neural Networks',
+    code: 'CS6310',
+    id: '85',
+    pre_req: []
+  },
+  {
+    name: 'Distributed Computing',
+    code: 'CS6440',
+    id: '86',
+    pre_req: []
+  },
+  {
+    name: 'Discrete Mathematics for Computer Science',
+    code: 'CS1200',
+    id: '87',
+    pre_req: []
+  },
+  {
+    name: 'Programming and Data Structures',
+    code: 'CS2700',
+    id: '88',
+    pre_req: ['87']
+  },
+  {
+    name: 'Programming and Data Structures Lab',
+    code: 'CS2710',
+    id: '89',
+    pre_req: ['28', '87']
+  },
+  {
+    name: 'Foundations of Computer Systems Design',
+    code: 'CS2300',
+    id: '90',
+    pre_req: ['87']
+  },
+  {
+    name: 'Foundations of Computer Systems Design Lab',
+    code: 'CS2310',
+    id: '91',
+    pre_req: ['87']
+  },
+  {
+    name: 'Design and Analysis of Algorithms',
+    code: 'CS2800',
+    id: '92',
+    pre_req: ['28', '87', '88', '89']
+  },
+  {
+    name: 'Object Oriented Algorithms Implementation and Analysis',
+    code: 'CS2810',
+    id: '93',
+    pre_req: ['87', '88', '89']
+  },
+  {
+    name: 'Computer Organization and Architecture',
+    code: 'CS2600',
+    id: '94',
+    pre_req: ['90', '91']
+  },
+  {
+    name: 'Computer Organization and Architecture Lab',
+    code: 'CS2610',
+    id: '95',
+    pre_req: ['90', '91']
+  },
+  {
+    name: 'Cryptography & Network Security',
+    code: 'CS6500',
+    id: '96',
+    pre_req: []
+  },
+  {
+    name: 'Parallel Computer Architecture',
+    code: 'CS6560',
+    id: '97',
+    pre_req: ['63']
+  },
+  {
+    name: 'Probablistic Reasoning in AI',
+    code: 'CS6730',
+    id: '98',
+    pre_req: []
+  },
+  {
+    name: 'Advances in Visual Perception',
+    code: 'CS6710',
+    id: '100',
+    pre_req: []
+  },
+  {
+    name: 'Performance Evaluation of Computer Systems',
+    code: 'CS6210',
+    id: '101',
+    pre_req: []
+  },
+  {
+    name: 'Computational Geometry',
+    code: 'CS6110',
+    id: '102',
+    pre_req: []
+  },
+  {
+    name: 'Real Time Computation and Communication',
+    code: 'CS6410',
+    id: '103',
+    pre_req: []
+  },
+  {
+    name: 'M.Tech Seminar',
+    code: 'CS5970',
+    id: '104',
+    pre_req: []
+  },
+  {
+    name: 'Router Architectures and Algorithms',
+    code: 'CS6040',
+    id: '105',
+    pre_req: ['50']
+  },
+  {
+    name: 'B.Tech (DD) Project - I',
+    code: 'CS5710',
+    id: '106',
+    pre_req: []
+  },
+  {
+    name: 'Industrial Training',
+    code: 'CS3660',
+    id: '107',
+    pre_req: []
+  },
+  {
+    name: 'Special Topics in Computer Science and Engineering - I',
+    code: 'CS6999',
+    id: '108',
+    pre_req: []
+  },
+  {
+    name: 'Special Topics in Computer Science and Engineering - II',
+    code: 'CS7999',
+    id: '109',
+    pre_req: []
+  },
+  {
+    name: 'Compiler Design',
+    code: 'CS3300',
+    id: '110',
+    pre_req: []
+  },
+  {
+    name: 'Applied Cryptography',
+    code: 'CS6530',
+    id: '112',
+    pre_req: ['37', '87']
+  },
+  {
+    name: 'Statistical Learning Theory',
+    code: 'CS6464',
+    id: '113',
+    pre_req: []
+  },
+  {
+    name: 'Topics in Cryptography',
+    code: 'CS7111',
+    id: '114',
+    pre_req: ['58']
+  },
+  {
+    name: 'Deep Learning',
+    code: 'CS7015',
+    id: '115',
+    pre_req: ['8']
+  },
+  {
+    name: 'Research Methodology (CSE Module)',
+    code: 'CS6021',
+    id: '116',
+    pre_req: []
+  },
+  {
+    name: 'Industrial Lecture',
+    code: 'CS4880',
+    id: '117',
+    pre_req: []
+  },
+  {
+    name: 'B.Tech Project',
+    code: 'CS4800',
+    id: '118',
+    pre_req: []
+  },
+  {
+    name: 'B.Tech(DD) Project - II',
+    code: 'CS5810',
+    id: '119',
+    pre_req: []
+  }
+]

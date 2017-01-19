@@ -2,13 +2,14 @@
 #app
   ul.graph-container
     svg#deps-arrow
-      line(v-for="arrow in depsArrow", :x1="arrow.start.x", :y1="arrow.start.y", :x2="arrow.end.x", :y2="arrow.end.y" style="stroke:rgb(255,0,0);stroke-width:2")
-    li.graph-level(v-for="(level, index) in levels")
+      line(v-for='arrow in depsArrow', :x1='arrow.start.x', :y1='arrow.start.y', :x2='arrow.end.x', :y2='arrow.end.y' style='stroke:rgb(255,0,0);stroke-width:2')
+      polygon(points="700,700 650,650 750,650", style="fill:lime;stroke:purple;stroke-width:1")
+    li.graph-level(v-for='(level, index) in levels')
       ul.level-container
-        li(v-for="subject in level", :class="subject.code.toLowerCase()")
-          subject(:subject="subject")
+        li(v-for='subject in level', :class='subject.class')
+          subject(:subject='subject')
 </template>
-<!-- subject(:subject="subject") -->
+<!-- subject(:subject='subject') -->
 
 <script>
 import subject from './vue-comps/subject'
@@ -18,119 +19,46 @@ export default {
   data () {
     var data = [
       {
-        name: 'CS2710',
-        pre_req: ['CS2713'],
-        code: 'CS2710'
+        name: 'Computability and Complexity',
+        code: 'CS6014',
+        id: '1',
+        pre_req: []
       },
       {
-        name: 'CS2711',
-        pre_req: ['CS2714', 'CS2713'],
-        code: 'CS2711'
+        name: 'Pseudorandomness',
+        code: 'CS6845',
+        id: '94',
+        pre_req: []
       },
       {
-        name: 'CS2719',
-        pre_req: ['CS2714', 'CS2713'],
-        code: 'CS2719'
+        name: 'Algorithmic Algebra',
+        code: 'CS6842',
+        id: '25',
+        pre_req: []
       },
       {
-        name: 'CS2725',
-        pre_req: ['CS2714', 'CS2713'],
-        code: 'CS2725'
+        name: 'Paradigms of Programming',
+        code: 'CS3100',
+        id: '19',
+        pre_req: ['25', '94', '1']
       },
       {
-        name: 'CS2735',
-        pre_req: ['CS2714', 'CS2713'],
-        code: 'CS2735'
+        name: 'Paradigms of Programming',
+        code: 'CS3100',
+        id: '20',
+        pre_req: ['1']
       },
       {
-        name: 'CS2712',
-        pre_req: ['CS2711'],
-        code: 'CS2712'
+        name: 'Paradigms of Programming',
+        code: 'CS3112',
+        id: '23',
+        pre_req: []
       },
       {
-        name: 'CS2772',
-        pre_req: ['CS2711'],
-        code: 'CS2772'
-      },
-      {
-        name: 'CS2773',
-        pre_req: ['CS2711'],
-        code: 'CS2773'
-      },
-      {
-        name: 'CS2774',
-        pre_req: ['CS2711'],
-        code: 'CS2774'
-      },
-      {
-        name: 'CS2758',
-        pre_req: ['CS2711'],
-        code: 'CS2758'
-      },
-      {
-        name: 'CS2713',
-        pre_req: [],
-        code: 'CS2713'
-      },
-      {
-        name: 'CS2763',
-        pre_req: [],
-        code: 'CS2763'
-      },
-      {
-        name: 'CS2764',
-        pre_req: [],
-        code: 'CS2764'
-      },
-      {
-        name: 'CS2769',
-        pre_req: [],
-        code: 'CS2769'
-      },
-      {
-        name: 'CS2714',
-        pre_req: ['CS2715'],
-        code: 'CS2714'
-      },
-      {
-        name: 'CS2755',
-        pre_req: ['CS2715'],
-        code: 'CS2755'
-      },
-      {
-        name: 'CS2751',
-        pre_req: ['CS2715'],
-        code: 'CS2751'
-      },
-      {
-        name: 'CS2752',
-        pre_req: ['CS2715'],
-        code: 'CS2752'
-      },
-      {
-        name: 'CS2715',
-        pre_req: [],
-        code: 'CS2715'
-      },
-      {
-        name: 'CS2786',
-        pre_req: ['CS2712'],
-        code: 'CS2786'
-      },
-      {
-        name: 'CS2787',
-        pre_req: ['CS2712'],
-        code: 'CS2787'
-      },
-      {
-        name: 'CS2788',
-        pre_req: ['CS2712'],
-        code: 'CS2788'
-      },
-      {
-        name: 'CS2789',
-        pre_req: ['CS2712'],
-        code: 'CS2789'
+        name: 'Paradigms of Programming',
+        code: 'CS3145',
+        id: '28',
+        pre_req: ['1', '19']
       }
     ]
     return {
@@ -146,14 +74,14 @@ export default {
   },
   methods: {
     createLevels: function (data, initLevel, levels, processed) {
-      var processdData = data
-      processdData.forEach((el, index) => {
+      data.forEach((el, index) => {
         if (el.pre_req.length === 0) {
           // node prerequisite required
           levels[initLevel] = levels[initLevel] || []
           el.index = index
+          el.class = 'subject-' + el.id
           levels[initLevel].push(el)
-          processed.push(el.code.toLowerCase())
+          processed.push(el.id) // keeps track of processed subjects
         }
       })
 
@@ -161,15 +89,18 @@ export default {
         levels[initLevel].sort(function (a, b) {
           return a.index > b.index
         })
+
+        // remove processed subjects
         for (var i = levels[initLevel].length - 1; i >= 0; i--) {
-          // console.log(i)
           var subject = levels[initLevel][i]
           this.data.splice(subject.index, 1)
         }
+
+        // remove processed subject from pre_req
         this.data.forEach((el1, index) => {
           for (var index2 = el1.pre_req.length - 1; index2 >= 0; index2--) {
-            var el2 = el1.pre_req[index2]
-            if (processed.indexOf(el2.toLowerCase()) > -1) {
+            var el2 = el1.pre_req[index2] // pre_req for one subject
+            if (processed.indexOf(el2) > -1) {
               this.data[index].pre_req.splice(index2, 1)
             }
           }
@@ -184,19 +115,19 @@ export default {
           $(el).css({
             left: left + 'px'
           })
-          left += 200
+          left += 210
         })
 
         // draw depedency arrow
         // get element position and savein data
-        // this.depsArrow = []
+        this.depsArrow = []
         var container = this.$el.querySelector('.graph-container').getBoundingClientRect()
         var basis = {
           x: container.left,
           y: container.top
         }
         for (var subject in this.dependency) {
-          var sub = this.$el.querySelectorAll('.' + subject)
+          var sub = this.$el.querySelectorAll('.subject-' + subject)
           var el1 = sub[0].getBoundingClientRect()
           var start = {
             x: el1.right - basis.x,
@@ -205,7 +136,7 @@ export default {
 
           this.dependency[subject].deps.forEach((dept) => {
             // find arrow start and end position
-            var dep = this.$el.querySelectorAll('.' + dept)
+            var dep = this.$el.querySelectorAll('.subject-' + dept)
             var el2 = dep[0].getBoundingClientRect()
             var end = {
               x: el2.left - basis.x,
@@ -230,25 +161,25 @@ export default {
     // create dependency object for arrow creation
     this.data.forEach((sub) => {
       var arr = sub.pre_req
-      var code = sub.code.toLowerCase()
+      var code = sub.id
       if (arr.length !== 0) {
-        arr.forEach((dep1) => {
-          var dep = dep1.toLowerCase()
-          this.dependency[dep] = this.dependency[dep] || {deps: []}
-          this.dependency[dep].deps.push(code)
+        arr.forEach((dept) => {
+          this.dependency[dept] = this.dependency[dept] || {deps: []}
+          this.dependency[dept].deps.push(code)
         })
       }
     })
-    // console.log(this.dependency)
+    console.log(this.dependency)
     while (this.data.length) {
       this.createLevels(this.data, levelCount++, levels, processed)
     }
     // now calculate the positions of the subjects
     // find max level height
-    var maxHeight = 0
-    this.levels.forEach((el) => {
-      maxHeight = maxHeight > el.length ? maxHeight : el.length
-    })
+    // var maxHeight = 0
+    // this.levels.forEach((el) => {
+    //   maxHeight = maxHeight > el.length ? maxHeight : el.length
+    // })
+
     this.$nextTick(function () {
       this.levels = levels
       this.customRender()
