@@ -3,7 +3,7 @@
   ul.graph-container
     svg#deps-arrow
       line(v-for='arrow in depsArrow', :x1='arrow.start.x', :y1='arrow.start.y', :x2='arrow.end.x', :y2='arrow.end.y' style='stroke:rgb(255,0,0);stroke-width:2')
-      polygon(points="700,700 650,650 750,650", style="fill:lime;stroke:purple;stroke-width:1")
+      <!-- polygon(points="700,700 650,650 750,650", style="fill:lime;stroke:purple;stroke-width:1") -->
     li.graph-level(v-for='(level, index) in levels')
       ul.level-container
         li(v-for='subject in level', :class='subject.class')
@@ -184,6 +184,9 @@ export default {
       this.levels = levels
       this.customRender()
     })
+  },
+  mounted () {
+    console.log('mounted ')
   }
 }
 </script>
@@ -191,6 +194,14 @@ export default {
 <style lang=scss>
 $canvas-height: 800px;
 $canvas-width: 1200px;
+body, html{
+  margin: 0;
+  padding: 0;
+}
+#app{
+  position: absolute;
+  width: 100%;
+}
 #deps-arrow{
   position: absolute;
   height: $canvas-height;
