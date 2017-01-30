@@ -16,61 +16,24 @@ import subject from './vue-comps/subject'
 import $ from './../node_modules/jquery/dist/jquery.min.js'
 export default {
   name: 'app',
+  components: {
+    subject
+  },
   data () {
-    var data = [
-      {
-        name: 'Computability and Complexity',
-        code: 'CS6014',
-        id: '1',
-        pre_req: []
-      },
-      {
-        name: 'Pseudorandomness',
-        code: 'CS6845',
-        id: '94',
-        pre_req: []
-      },
-      {
-        name: 'Algorithmic Algebra',
-        code: 'CS6842',
-        id: '25',
-        pre_req: []
-      },
-      {
-        name: 'Paradigms of Programming',
-        code: 'CS3100',
-        id: '19',
-        pre_req: ['25', '94', '1']
-      },
-      {
-        name: 'Paradigms of Programming',
-        code: 'CS3100',
-        id: '20',
-        pre_req: ['1']
-      },
-      {
-        name: 'Paradigms of Programming',
-        code: 'CS3112',
-        id: '23',
-        pre_req: []
-      },
-      {
-        name: 'Paradigms of Programming',
-        code: 'CS3145',
-        id: '28',
-        pre_req: ['1', '19']
-      }
-    ]
     return {
-      data,
+      data: [],
       dependency: {},
       depsArrow: [],
       levels: [],
       changed: 0
     }
   },
-  components: {
-    subject
+
+  watch: {
+    '$route' (to, from) {
+      var groupId = to.path.split('/')
+      this.loadData(groupId[1])
+    }
   },
   methods: {
     createLevels: function (data, initLevel, levels, processed) {
@@ -86,10 +49,6 @@ export default {
       })
 
       if (levels[initLevel] !== undefined && levels[initLevel].length) {
-        levels[initLevel].sort(function (a, b) {
-          return a.index > b.index
-        })
-
         // remove processed subjects
         for (var i = levels[initLevel].length - 1; i >= 0; i--) {
           var subject = levels[initLevel][i]
@@ -115,78 +74,96 @@ export default {
           $(el).css({
             left: left + 'px'
           })
-          left += 210
+          left += 300
         })
 
         // draw depedency arrow
         // get element position and savein data
         this.depsArrow = []
-        var container = this.$el.querySelector('.graph-container').getBoundingClientRect()
-        var basis = {
-          x: container.left,
-          y: container.top
-        }
-        for (var subject in this.dependency) {
-          var sub = this.$el.querySelectorAll('.subject-' + subject)
-          var el1 = sub[0].getBoundingClientRect()
-          var start = {
-            x: el1.right - basis.x,
-            y: el1.top + el1.height / 2 - basis.y
+        if (this.levels.length) {
+          var container = this.$el.querySelector('.graph-container').getBoundingClientRect()
+          var basis = {
+            x: container.left,
+            y: container.top
           }
+          for (var subject in this.dependency) {
+            var sub = this.$el.querySelectorAll('.subject-' + subject)
+            if (sub[0]) {
+              var el1 = sub[0].getBoundingClientRect()
+              var start = {
+                x: el1.right - basis.x,
+                y: el1.top + el1.height / 2 - basis.y
+              }
 
-          this.dependency[subject].deps.forEach((dept) => {
-            // find arrow start and end position
-            var dep = this.$el.querySelectorAll('.subject-' + dept)
-            var el2 = dep[0].getBoundingClientRect()
-            var end = {
-              x: el2.left - basis.x,
-              y: el2.top + el2.height / 2 - basis.y
+              this.dependency[subject].deps.forEach((dept) => {
+                // find arrow start and end position
+                var dep = this.$el.querySelectorAll('.subject-' + dept)
+                var el2 = dep[0].getBoundingClientRect()
+                var end = {
+                  x: el2.left - basis.x,
+                  y: el2.top + el2.height / 2 - basis.y
+                }
+                this.depsArrow.push({start, end})
+                // console.log(start, end, sub, dep)
+              })
             }
-            this.depsArrow.push({start, end})
-            // console.log(start, end, sub, dep)
+          }
+        }
+      })
+    },
+    createGraph: function () {
+      var processed = []
+      var levels = []
+      var levelCount = 0
+
+      // You must check if there is no circular dependency
+      // otherwise stop
+
+      // create dependency object for arrow creation
+      this.data.forEach((sub) => {
+        var arr = sub.pre_req
+        var code = sub.id
+        if (arr.length !== 0) {
+          arr.forEach((dept) => {
+            this.dependency[dept] = this.dependency[dept] || {deps: []}
+            this.dependency[dept].deps.push(code)
           })
         }
       })
-    }
-  },
-
-  beforeMount () {
-    var processed = []
-    var levels = []
-    var levelCount = 0
-
-    // You must check if there is no circular dependency
-    // otherwise stop
-
-    // create dependency object for arrow creation
-    this.data.forEach((sub) => {
-      var arr = sub.pre_req
-      var code = sub.id
-      if (arr.length !== 0) {
-        arr.forEach((dept) => {
-          this.dependency[dept] = this.dependency[dept] || {deps: []}
-          this.dependency[dept].deps.push(code)
-        })
+      // console.log(this.dependency)
+      var i = 0
+      while (this.data.length) {
+        if (++i > 10) {
+          break
+        }
+        this.createLevels(this.data, levelCount++, levels, processed)
       }
-    })
-    console.log(this.dependency)
-    while (this.data.length) {
-      this.createLevels(this.data, levelCount++, levels, processed)
-    }
-    // now calculate the positions of the subjects
-    // find max level height
-    // var maxHeight = 0
-    // this.levels.forEach((el) => {
-    //   maxHeight = maxHeight > el.length ? maxHeight : el.length
-    // })
+      console.log(this.levels)
+      // now calculate the positions of the subjects
+      // find max level height
+      // var maxHeight = 0
+      // this.levels.forEach((el) => {
+      //   maxHeight = maxHeight > el.length ? maxHeight : el.length
+      // })
 
-    this.$nextTick(function () {
-      this.levels = levels
-      this.customRender()
-    })
+      this.$nextTick(function () {
+        this.levels = levels
+        this.customRender()
+      })
+    },
+    loadData: function (groupName) {
+      this.$http.get('http://localhost:8000/index.php?group_name=' + groupName).then((res) => {
+        // console.log(res.body)
+        this.data = JSON.parse(res.body)
+        this.createGraph()
+      }, (res) => {
+        console.log(res)
+      })
+    }
   },
   mounted () {
-    console.log('mounted ')
+    var groupName = this.$route.path.split('/')[1]
+    this.loadData(groupName)
   }
 }
 </script>

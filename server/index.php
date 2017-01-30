@@ -4,19 +4,20 @@ header("Access-Control-Allow-Origin: *");
 $user = 'root';
 $pass = '123';
 
-$groups = '(SELECT * 
- FROM groups JOIN courses_group
- ON groups.id_group = courses_group.id_group)';
+$group_name = $_GET['group_name'];
 
-$courses = '(SELECT courses_details.course_name as name, courses_details.course_code as code, courses.id_courses as id
+if (isset($group_name) && $group_name != '') {
+  $query = 'SELECT courses_details.course_name as name, courses_details.course_code as code, courses.id_courses as id
           FROM courses_details JOIN courses
-          ON courses_details.id_courses_details = courses.id_courses)';
+          ON courses_details.id_courses_details = courses.id_courses
+          WHERE courses_details.areas = \'' . $group_name . '\'';
+} else {
+  $query = 'SELECT courses_details.course_name as name, courses_details.course_code as code, courses.id_courses as id
+            FROM courses_details JOIN courses
+            ON courses_details.id_courses_details = courses.id_courses';
+}
 
-$query = $courses;
-// 'SELECT * 
-//           FROM' . $groups . 'JOIN' . $courses . 'ON g.id_courses = c.id_courses';
 
-//           echo "$query";
 try {
     $arr = array();
     $dbh = new PDO('mysql:host=localhost;dbname=graph', $user, $pass);
@@ -26,7 +27,6 @@ try {
       unset($row[2]);
       $query_pre_req = 'SELECT * from courses_prereq
                         WHERE courses_prereq.courses_details_id_courses_details = ' . $row['id'];
-
       $pre_req = array();
       $row['pre_req'] = array();
 
